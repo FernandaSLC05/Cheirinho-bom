@@ -19,33 +19,38 @@ def exibir_opcoes():
     print('4. Sair\n')
 
 def finalizar_app():
-    #os - faz com que, ao clicar 4 (finalizar programa) o terminal seja limpo
-    os.system('cls')
-    print("Finalizando app\n")
+    exibir_subtitulo("Finalizar app")
 
-def Opcao_invalida():
-    print("Opçaõ inválida\n")
-    input("Precione qualquer tecla para voltar ao meno principal: ")
-    main()
-
-def cadastrar_novo_restaurante():
-    os.system('cls')
-    print("Cadastro de novos restaurantes\n ")
-    nome_do_restaurante = input("Digite o nome do restaurante que deseja cadastrar: ")
-    restaurantes.append(nome_do_restaurante)
-    print(f"O restaurante {nome_do_restaurante} foi cadastrado com sucesso!")
+def voltar_ao_menu_principal():
     input("\nPrecione qualquer tecla para voltar ao meno principal: ")
     main()
 
-def listar_restaurantes():
+def Opcao_invalida():
+    print("Opçaõ inválida\n")
+    voltar_ao_menu_principal()
+
+def exibir_subtitulo(texto):
     os.system('cls')
-    print("Lista de restaurantes\n")
+    print (texto)
+    print()
+
+
+def cadastrar_novo_restaurante():
+    exibir_subtitulo("Cadastro de novos restaurantes")
+    
+    nome_do_restaurante = input("Digite o nome do restaurante que deseja cadastrar: ")
+    restaurantes.append(nome_do_restaurante)
+    print(f"O restaurante {nome_do_restaurante} foi cadastrado com sucesso!")
+
+    voltar_ao_menu_principal()
+
+def listar_restaurantes():
+    exibir_subtitulo("Listando restaurantes")
 
     for restaurante in restaurantes:
         print(f".{restaurante}")
 
-    input("\nPrecione qualquer tecla para voltar ao meno principal: ")
-    main()
+    voltar_ao_menu_principal()
 
 def escolher_opcaos():
     try:
